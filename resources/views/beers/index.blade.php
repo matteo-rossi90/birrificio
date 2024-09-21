@@ -22,6 +22,7 @@
         <td>{{$beer->price}}</td>
         <td>
             <a href="{{ route('beers.show', $beer)}}" class="btn btn-primary">Dettagli</a>
+            <a href="{{ route('beers.edit', $beer)}}" class="btn btn-warning">Modifica</a>
         </td>
     </tr>
 

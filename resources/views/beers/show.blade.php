@@ -4,10 +4,13 @@
 
 <div class="container my-5">
 
-    <h1>{{$beer->name}}</h1>
+    <div class="text-center">
+        <h1>{{$beer->name}}</h1>
 
-    <p>Prezzo: {{$beer->price}}  |  Voto: {{$beer->average}}  |  Slug: {{$beer->slug}}</p>
-    <img src="{{$beer->image}}" alt="{{$beer->name}}">
+        <p>Prezzo: {{$beer->price}}  |  Voto: {{$beer->average}}  |  Slug: {{$beer->slug}}</p>
+        <img src="{{$beer->image}}" alt="{{$beer->name}}">
+
+    </div>
 
 </div>
 
