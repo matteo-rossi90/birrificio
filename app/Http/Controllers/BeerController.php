@@ -14,7 +14,11 @@ class BeerController extends Controller
      */
     public function index()
     {
-        $beers = Beer::orderBy('name')->get();
+        if(isset($_GET['to-seacrh'])){
+            $beers = Beer::where('name', 'LIKE', '%' . $_GET['to-search'] . '%')->paginate(10);
+        }else{
+            $beers = Beer::orderBy('id', 'desc')->paginate(10);
+        }
 
         return view('beers.index', compact('beers'));
     }
@@ -70,7 +74,7 @@ class BeerController extends Controller
 
         $beer->update($data);
 
-        return redirect()->route('beers.show', $beer);
+        return redirect()->route('beers.show', $beer)->with('update', 'La birra è stata caricata con successo!');
     }
 
     /**
@@ -78,6 +82,8 @@ class BeerController extends Controller
      */
     public function destroy(Beer $beer)
     {
-        //
+        $beer->delete();
+
+        return redirect()->route('beers.index', $beer)->with('delete', 'L\'oggetto è stato rimosso correttamente');
     }
 }

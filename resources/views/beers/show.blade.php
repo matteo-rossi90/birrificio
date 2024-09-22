@@ -5,6 +5,13 @@
 <div class="container my-5">
 
     <div class="text-center">
+        @if (session('update'))
+
+        <div class="alert alert-success">
+            {{session('update')}}
+        </div>
+
+        @endif
         <h1>{{$beer->name}}</h1>
 
         <p>Prezzo: {{$beer->price}}  |  Voto: {{$beer->average}}  |  Slug: {{$beer->slug}}</p>
